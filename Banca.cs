@@ -61,7 +61,7 @@ namespace csharp_banca_oop
        
         internal static int  RichiediCliente()
         {
-            Console.WriteLine("Inserisci la posizione da ricercare: ");
+            Console.WriteLine("Inserisci la posizione: ");
             int numCliente = int.Parse(Console.ReadLine());
             return numCliente;
         }
@@ -75,11 +75,12 @@ namespace csharp_banca_oop
             }
             return clienti[indice];
         }
-        public void ModificaCliente(int indice)
+        public void ModificaCliente(Cliente cliente)
         {
-            
+            Console.WriteLine("---Modifica cliente---");
             Cliente clienteModificato = Banca.CreaCLiente();
-            this.clienti.RemoveAt(indice - 1);
+            cliente.Nome = clienteModificato.Nome;
+            
         }
     }
 }

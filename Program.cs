@@ -21,5 +21,6 @@ Console.WriteLine();
 
 //chiedo di inserire indice dell'elemento da modificare
 int modifica = Banca.RichiediCliente();
-banca.ModificaCliente(modifica);
+Cliente clienteMod = banca.CercaCLiente(modifica);
+banca.ModificaCliente(clienteMod);
 banca.ListaClienti();
