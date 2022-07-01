@@ -10,7 +10,7 @@
 
         public string Nome { 
             get {
-                return nome;
+                return this.nome;
             } 
             set { 
                 this.nome = value;
@@ -20,7 +20,7 @@
         string CodiceFiscale { get; set; }  
         int Stipendio { get; set; }
 
-        internal void Stampa()
+        public void Stampa()
         {
             Console.WriteLine($"Nome: {this.Nome}");
         }

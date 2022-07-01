@@ -40,6 +40,8 @@ namespace csharp_banca_oop
             clienti.Add(cliente);
         }
 
+        
+
         public static Cliente CreaCLiente()
         {
             Console.WriteLine("Inserisci il nome:");
@@ -81,6 +83,11 @@ namespace csharp_banca_oop
             Cliente clienteModificato = Banca.CreaCLiente();
             cliente.Nome = clienteModificato.Nome;
             
+        }
+
+        public Prestito AddPrestito(Cliente cliente, int ammontare)
+        {
+            return new Prestito(cliente,ammontare);
         }
     }
 }

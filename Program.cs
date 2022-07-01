@@ -24,3 +24,8 @@ int modifica = Banca.RichiediCliente();
 Cliente clienteMod = banca.CercaCLiente(modifica);
 banca.ModificaCliente(clienteMod);
 banca.ListaClienti();
+
+
+//aggiunta di un prestito
+Prestito prestito1 = banca.AddPrestito(nuovoCliente,5000);
+prestito1.Stampa();
