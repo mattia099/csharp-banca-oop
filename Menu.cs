@@ -20,7 +20,8 @@ namespace csharp_banca_oop
             Console.WriteLine("3. Modifica cliente");
             Console.WriteLine("4. Ricerca cliente");
             Console.WriteLine("5. Aggiunta prestito");
-            Console.WriteLine("6. Esci dal programma\n");
+            Console.WriteLine("6. Lista prestiti");
+            Console.WriteLine("7. Esci dal programma\n");
 
             uint input = Convert.ToUInt32(Console.ReadLine());
             
@@ -59,11 +60,16 @@ namespace csharp_banca_oop
                     Console.WriteLine("Aggiungere ammontare del prestito");
                     float ammontare = float.Parse(Console.ReadLine());
                     Prestito prestito = banca.AggiungiPrestito(cliente, ammontare);
+                    Console.WriteLine();
                     Console.WriteLine($"Lista prestiti di banca {banca.Nome}");
                     banca.ListaPrestiti();
                     mainPage(banca);
                     break;
                 case 6:
+                    banca.ListaPrestiti();
+                    mainPage(banca);
+                    break;
+                case 7:
                     return;
                     break;
                     

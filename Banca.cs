@@ -86,12 +86,19 @@ namespace csharp_banca_oop
         }
         public void ListaPrestiti()
         {
-            int pos = 1;
-            foreach(Prestito prestito in prestiti)
+            if (prestiti != null)
             {
-                Console.WriteLine(pos + ". ");
-                prestito.Stampa();
-                pos++;
+                int pos = 1;
+                foreach (Prestito prestito in prestiti)
+                {
+                    Console.WriteLine(pos + ". ");
+                    prestito.Stampa();
+                    pos++;
+                }
+            }
+            else
+            {
+                Console.WriteLine("La banca al momento non ha prestiti");
             }
         }
     }
