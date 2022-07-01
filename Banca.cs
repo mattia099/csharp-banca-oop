@@ -21,26 +21,19 @@ namespace csharp_banca_oop
 
         
 
-        List<Cliente> clienti;
+        static List<Cliente> clienti = new List<Cliente>();
 
-        
-
-        List<Prestito> prestiti;
+        static List<Prestito> prestiti  = new List<Prestito>();
 
         public Banca(string nome)
         {
             Nome = nome;
-            clienti=new List<Cliente>();
-            prestiti=new List<Prestito>();
-            
         }
-
+    
         public void NuovoCliente(Cliente cliente) 
         {
             clienti.Add(cliente);
         }
-
-        
 
         public static Cliente CreaCLiente()
         {
@@ -50,7 +43,7 @@ namespace csharp_banca_oop
             return newCliente;
         }
 
-        internal void ListaClienti()
+        public void ListaClienti()
         {
             int pos = 1;
             foreach(Cliente cliente in clienti)
@@ -61,9 +54,9 @@ namespace csharp_banca_oop
             }
         }
        
-        internal static int  RichiediCliente()
+        internal static int RichiediCliente()
         {
-            Console.WriteLine("Inserisci la posizione: ");
+            Console.WriteLine("Inserisci numero del cliente: ");
             int numCliente = int.Parse(Console.ReadLine());
             return numCliente;
         }
@@ -85,9 +78,21 @@ namespace csharp_banca_oop
             
         }
 
-        public Prestito AddPrestito(Cliente cliente, int ammontare)
+        public Prestito AggiungiPrestito(Cliente cliente, float ammontare)
         {
-            return new Prestito(cliente,ammontare);
+            Prestito prestito = new Prestito(cliente, ammontare);
+            prestiti.Add(prestito);
+            return prestito;
+        }
+        public void ListaPrestiti()
+        {
+            int pos = 1;
+            foreach(Prestito prestito in prestiti)
+            {
+                Console.WriteLine(pos + ". ");
+                prestito.Stampa();
+                pos++;
+            }
         }
     }
 }

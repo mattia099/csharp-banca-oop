@@ -2,30 +2,13 @@
 
 
 using csharp_banca_oop;
-
 Banca banca = new Banca("Intesa San Paolo");
-
-Cliente nuovoCliente = Banca.CreaCLiente();
-banca.NuovoCliente(nuovoCliente);
-
-Console.WriteLine();
-Console.WriteLine($"----LISTA CLIENTI REGISTRATI {banca.Nome} ----");
-banca.ListaClienti();
-Console.WriteLine();
-
-int indiceCliente = Banca.RichiediCliente();
-Cliente cliente = banca.CercaCLiente(indiceCliente);
-banca.ListaClienti();
-
-Console.WriteLine();
-
-//chiedo di inserire indice dell'elemento da modificare
-int modifica = Banca.RichiediCliente();
-Cliente clienteMod = banca.CercaCLiente(modifica);
-banca.ModificaCliente(clienteMod);
-banca.ListaClienti();
-
-
-//aggiunta di un prestito
-Prestito prestito1 = banca.AddPrestito(nuovoCliente,5000);
-prestito1.Stampa();
+Cliente clienteFake1 = new Cliente("Pippo");
+Cliente clienteFake2 = new Cliente("Ernesto");
+Cliente clienteFake3 = new Cliente("Francesco");
+Cliente clienteFake4 = new Cliente("Pino");
+banca.NuovoCliente(clienteFake1);
+banca.NuovoCliente(clienteFake2);
+banca.NuovoCliente(clienteFake3);
+banca.NuovoCliente(clienteFake4);
+Menu.mainPage(banca);

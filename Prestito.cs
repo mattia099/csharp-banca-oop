@@ -9,7 +9,7 @@ namespace csharp_banca_oop
     internal class Prestito
     {
         private Cliente intestatario;
-        private int ammontare;
+        private float ammontare;
 
         public Cliente Intestatario
         {
@@ -22,7 +22,7 @@ namespace csharp_banca_oop
                 this.intestatario = value;
             }
         }
-        public int Ammontare {
+        public float Ammontare {
             get
             {
                 return this.ammontare;
@@ -36,7 +36,7 @@ namespace csharp_banca_oop
         DateTime dataInizio { get; set; }
         DateTime dataFine { get; set; }
 
-        public Prestito(Cliente intestatario,int ammontare)
+        public Prestito(Cliente intestatario,float ammontare)
         {
             this.Intestatario = intestatario;
             this.Ammontare = ammontare;
@@ -44,7 +44,7 @@ namespace csharp_banca_oop
 
         public void Stampa()
         {
-            Console.WriteLine($"Stampa del prestito: Intestario: Intestatario: {this.Intestatario.Nome}  Ammontare del prestito: {this.Ammontare} ");
+            Console.WriteLine($"Intestatario: {this.Intestatario.Nome}  Ammontare del prestito: {this.Ammontare} ");
         }
     }
 }
