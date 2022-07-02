@@ -21,7 +21,9 @@ namespace csharp_banca_oop
             Console.WriteLine("4. Ricerca cliente");
             Console.WriteLine("5. Aggiunta prestito");
             Console.WriteLine("6. Lista prestiti");
-            Console.WriteLine("7. Esci dal programma\n");
+            Console.WriteLine("7. Ammontare prestiti di un singolo cliente");
+            Console.WriteLine("8. Clear Console");
+            Console.WriteLine("9. Esci dal programma\n");
 
             uint input = Convert.ToUInt32(Console.ReadLine());
             
@@ -55,11 +57,12 @@ namespace csharp_banca_oop
                 case 5:
                     Console.WriteLine("---Inserimento Prestito---");
                     banca.ListaClienti();
+                    Console.WriteLine();
                     int numCliente = Banca.RichiediCliente();
                     Cliente cliente = banca.CercaCLiente(numCliente);
                     Console.WriteLine("Aggiungere ammontare del prestito");
                     float ammontare = float.Parse(Console.ReadLine());
-                    Prestito prestito = banca.AggiungiPrestito(cliente, ammontare);
+                    banca.AggiungiPrestito(cliente, ammontare);
                     Console.WriteLine();
                     Console.WriteLine($"Lista prestiti di banca {banca.Nome}");
                     banca.ListaPrestiti();
@@ -70,6 +73,18 @@ namespace csharp_banca_oop
                     mainPage(banca);
                     break;
                 case 7:
+                    Console.WriteLine("Ammontare totale dei prestiti concessi");
+                    Console.WriteLine("Inserisci Codice Fiscale del cliente");
+                    string codiceFiscale = Console.ReadLine();
+                    float sum = banca.TotalePrestiti(codiceFiscale);
+                    Console.WriteLine($"Somma totale dei prestiti concessi = {sum}");
+                    mainPage(banca);
+                    break;
+                case 8:
+                    Console.Clear();
+                    mainPage(banca);
+                    break;
+                case 9:
                     return;
                     break;
                     

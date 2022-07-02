@@ -39,7 +39,13 @@ namespace csharp_banca_oop
         {
             Console.WriteLine("Inserisci il nome:");
             string nome = Console.ReadLine();
-            Cliente newCliente = new Cliente(nome);
+            Console.WriteLine("Inserisci il cognome:");
+            string cognome = Console.ReadLine();
+            Console.WriteLine("Inserisci codice fiscale");
+            string codiceFiscale = Console.ReadLine();
+            Console.WriteLine("Inserisci stipemdio");
+            float stipendio = float.Parse(Console.ReadLine());
+            Cliente newCliente = new Cliente(nome,cognome,codiceFiscale,stipendio);
             return newCliente;
         }
 
@@ -75,14 +81,16 @@ namespace csharp_banca_oop
             Console.WriteLine("---Modifica cliente---");
             Cliente clienteModificato = Banca.CreaCLiente();
             cliente.Nome = clienteModificato.Nome;
+            cliente.Cognome = clienteModificato.Cognome;
+            cliente.CodiceFiscale = clienteModificato.CodiceFiscale;
+            cliente.Stipendio = clienteModificato.Stipendio;
             
         }
 
-        public Prestito AggiungiPrestito(Cliente cliente, float ammontare)
+        public void AggiungiPrestito(Cliente cliente, float ammontare)
         {
             Prestito prestito = new Prestito(cliente, ammontare);
             prestiti.Add(prestito);
-            return prestito;
         }
         public void ListaPrestiti()
         {
@@ -100,6 +108,31 @@ namespace csharp_banca_oop
             {
                 Console.WriteLine("La banca al momento non ha prestiti");
             }
+        }
+
+        public Cliente RicercaClienteCF(string codiceFiscale)
+        {
+            foreach (Cliente cliente in clienti)
+            {
+                if (codiceFiscale == cliente.CodiceFiscale)
+                {
+                    return cliente;
+                }
+            }
+            return null;
+        }
+
+        public float TotalePrestiti(string codiceFiscale)
+        {
+            float sum = 0;
+            foreach(Prestito prestito in prestiti)
+            {
+                if(prestito.Intestatario.CodiceFiscale == codiceFiscale)
+                {
+                    sum = sum + prestito.Ammontare;
+                }
+            }
+            return sum;
         }
     }
 }
