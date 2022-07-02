@@ -8,12 +8,12 @@ namespace csharp_banca_oop
 {
     internal class Menu
     {
-        public static void mainPage(Banca banca)
+        public static void menu(Banca banca)
         {
             
 
 
-            Console.WriteLine("\n*** MENU BANCA ***");
+            Console.WriteLine("\n--- MENU BANCA ---");
 
             Console.WriteLine("1. Lista clienti");
             Console.WriteLine("2. Aggiungi cliente");
@@ -33,26 +33,26 @@ namespace csharp_banca_oop
                 case 1:
                     Console.WriteLine("---Lista Clienti---");
                     banca.ListaClienti();
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 2:
                     Console.WriteLine("---Aggiunta Cliente---");
                     Cliente nuovoCliente = Banca.CreaCLiente();
                     banca.NuovoCliente(nuovoCliente);
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 3:
                     Console.WriteLine("---Modifica Cliente---");
                     int modifica = Banca.RichiediCliente();
                     Cliente clienteMod = banca.CercaCLiente(modifica);
                     banca.ModificaCliente(clienteMod);
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 4:
                     Console.WriteLine("---Ricerca Cliente---");
                     int selezionato = Banca.RichiediCliente();
                     Cliente clienteSelezionato = banca.CercaCLiente(selezionato);
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 5:
                     Console.WriteLine("---Inserimento Prestito---");
@@ -66,11 +66,11 @@ namespace csharp_banca_oop
                     Console.WriteLine();
                     Console.WriteLine($"Lista prestiti di banca {banca.Nome}");
                     banca.ListaPrestiti();
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 6:
                     banca.ListaPrestiti();
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 7:
                     Console.WriteLine("Ammontare totale dei prestiti concessi");
@@ -78,11 +78,11 @@ namespace csharp_banca_oop
                     string codiceFiscale = Console.ReadLine();
                     float sum = banca.TotalePrestiti(codiceFiscale);
                     Console.WriteLine($"Somma totale dei prestiti concessi = {sum}");
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 8:
                     Console.Clear();
-                    mainPage(banca);
+                    menu(banca);
                     break;
                 case 9:
                     return;

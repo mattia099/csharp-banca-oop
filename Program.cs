@@ -11,4 +11,4 @@ banca.NuovoCliente(clienteFake1);
 banca.NuovoCliente(clienteFake2);
 banca.NuovoCliente(clienteFake3);
 banca.NuovoCliente(clienteFake4);
-Menu.mainPage(banca);
+Menu.menu(banca);
